@@ -3,7 +3,6 @@ import { ActiveTab } from "@/types/toolkit";
 import WorkflowPanel from "@/components/WorkflowPanel";
 import ContactCharts from "@/components/ContactCharts";
 import ProjectsPanel from "@/components/ProjectsPanel";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const tabs: { key: ActiveTab; label: string }[] = [
   { key: "toolkit", label: "Toolkit" },
@@ -80,11 +79,6 @@ const Index = () => {
               </div>
             </div>
           )}
-        </div>
-
-        {/* Theme toggle at the bottom of the side menu */}
-        <div className="p-4 border-t border-border">
-          <ThemeToggle />
         </div>
       </div>
 
