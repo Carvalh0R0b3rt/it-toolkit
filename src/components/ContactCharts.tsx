@@ -58,7 +58,7 @@ const ContactCharts = () => {
   return (
     <div className="border border-border bg-card h-full flex flex-col">
       <div className="px-5 py-4 border-b border-border">
-        <h2 className="font-mono-ui text-xs font-semibold uppercase tracking-widest text-primary">
+        <h2 className="font-mono-ui text-xs font-semibold uppercase tracking-widest text-secondary">
           Power BI — Contact Performance
         </h2>
         <p className="font-body text-xs text-muted-foreground mt-1">
