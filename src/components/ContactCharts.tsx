@@ -127,9 +127,9 @@ const ContactCharts = () => {
                       fontSize: 12,
                     }}
                   />
-                  <Line type="monotone" dataKey="sent" stroke={chartColors.orange} strokeWidth={2} dot={false} />
-                  <Line type="monotone" dataKey="delivered" stroke={chartColors.midOrange} strokeWidth={2} dot={false} />
-                  <Line type="monotone" dataKey="read" stroke={chartColors.deepOrange} strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="sent" stroke={chartColors.navy} strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="delivered" stroke={chartColors.navyMid} strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="read" stroke={chartColors.orange} strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
             </div>
