@@ -18,7 +18,7 @@ const Index = () => {
       <div className="w-64 shrink-0 border-r border-border flex flex-col bg-background">
         <div className="px-5 py-5 border-b border-border">
           <h1 className="font-mono-ui text-sm font-bold uppercase tracking-widest text-secondary">
-            MarketOps
+            Market-Ops
           </h1>
         </div>
 
@@ -47,15 +47,15 @@ const Index = () => {
                 </p>
                 <div className="space-y-2">
                   <div className="border border-border bg-card p-3">
-                    <p className="font-mono-ui text-[10px] uppercase text-muted-foreground">Total Contacts</p>
+                    <p className="font-mono-ui text-[10px] uppercase text-muted-foreground">Total de envios do mês anterior</p>
                     <p className="font-mono-ui text-lg font-bold text-secondary">200.1K</p>
                   </div>
                   <div className="border border-border bg-card p-3">
-                    <p className="font-mono-ui text-[10px] uppercase text-muted-foreground">Active Workflows</p>
+                    <p className="font-mono-ui text-[10px] uppercase text-muted-foreground">Taxa de abertura do mês anterior</p>
                     <p className="font-mono-ui text-lg font-bold text-secondary">12</p>
                   </div>
                   <div className="border border-border bg-card p-3">
-                    <p className="font-mono-ui text-[10px] uppercase text-muted-foreground">Campaigns MTD</p>
+                    <p className="font-mono-ui text-[10px] uppercase text-muted-foreground">Clientes totais do mês anterior</p>
                     <p className="font-mono-ui text-lg font-bold text-secondary">8</p>
                   </div>
                 </div>
