@@ -41,15 +41,15 @@ const smsData = [
 const KPI = ({ label, value }: { label: string; value: string }) => (
   <div className="border border-border bg-background p-4">
     <p className="font-mono-ui text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
-    <p className="font-mono-ui text-2xl font-bold text-primary mt-1">{value}</p>
+    <p className="font-mono-ui text-2xl font-bold text-secondary mt-1">{value}</p>
   </div>
 );
 
 const chartColors = {
-  orange: "hsl(36, 90%, 55%)",
-  midOrange: "hsl(22, 78%, 50%)",
-  deepOrange: "hsl(12, 78%, 46%)",
-  red: "hsl(2, 78%, 42%)",
+  navy: "hsl(213, 100%, 22%)",
+  navyMid: "hsl(213, 80%, 35%)",
+  orange: "hsl(22, 100%, 50%)",
+  orangeDark: "hsl(22, 80%, 40%)",
 };
 
 const ContactCharts = () => {
@@ -58,7 +58,7 @@ const ContactCharts = () => {
   return (
     <div className="border border-border bg-card h-full flex flex-col">
       <div className="px-5 py-4 border-b border-border">
-        <h2 className="font-mono-ui text-xs font-semibold uppercase tracking-widest text-primary">
+        <h2 className="font-mono-ui text-xs font-semibold uppercase tracking-widest text-secondary">
           Power BI — Contact Performance
         </h2>
         <p className="font-body text-xs text-muted-foreground mt-1">
@@ -95,9 +95,9 @@ const ContactCharts = () => {
                       fontSize: 12,
                     }}
                   />
-                  <Bar dataKey="sent" fill={chartColors.orange} />
-                  <Bar dataKey="opened" fill={chartColors.midOrange} />
-                  <Bar dataKey="clicked" fill={chartColors.deepOrange} />
+                  <Bar dataKey="sent" fill={chartColors.navy} />
+                  <Bar dataKey="opened" fill={chartColors.navyMid} />
+                  <Bar dataKey="clicked" fill={chartColors.orange} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -127,9 +127,9 @@ const ContactCharts = () => {
                       fontSize: 12,
                     }}
                   />
-                  <Line type="monotone" dataKey="sent" stroke={chartColors.orange} strokeWidth={2} dot={false} />
-                  <Line type="monotone" dataKey="delivered" stroke={chartColors.midOrange} strokeWidth={2} dot={false} />
-                  <Line type="monotone" dataKey="read" stroke={chartColors.deepOrange} strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="sent" stroke={chartColors.navy} strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="delivered" stroke={chartColors.navyMid} strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="read" stroke={chartColors.orange} strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -159,9 +159,9 @@ const ContactCharts = () => {
                       fontSize: 12,
                     }}
                   />
-                  <Bar dataKey="sent" fill={chartColors.orange} />
-                  <Bar dataKey="delivered" fill={chartColors.midOrange} />
-                  <Bar dataKey="replied" fill={chartColors.red} />
+                  <Bar dataKey="sent" fill={chartColors.navy} />
+                  <Bar dataKey="delivered" fill={chartColors.navyMid} />
+                  <Bar dataKey="replied" fill={chartColors.orange} />
                 </BarChart>
               </ResponsiveContainer>
             </div>

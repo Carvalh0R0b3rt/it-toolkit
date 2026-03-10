@@ -32,12 +32,12 @@ const WorkflowPanel = () => {
   return (
     <div className="border border-border bg-card h-full flex flex-col">
       <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-        <h2 className="font-mono-ui text-xs font-semibold uppercase tracking-widest text-primary">
+        <h2 className="font-mono-ui text-xs font-semibold uppercase tracking-widest text-secondary">
           n8n Workflows
         </h2>
         <button
           onClick={() => setModalOpen(true)}
-          className="font-mono-ui text-xs uppercase tracking-wider px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+          className="font-mono-ui text-xs uppercase tracking-wider px-4 py-2 border border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors"
         >
           Add Workflow
         </button>
