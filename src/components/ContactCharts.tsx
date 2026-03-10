@@ -95,9 +95,9 @@ const ContactCharts = () => {
                       fontSize: 12,
                     }}
                   />
-                  <Bar dataKey="sent" fill={chartColors.orange} />
-                  <Bar dataKey="opened" fill={chartColors.midOrange} />
-                  <Bar dataKey="clicked" fill={chartColors.deepOrange} />
+                  <Bar dataKey="sent" fill={chartColors.navy} />
+                  <Bar dataKey="opened" fill={chartColors.navyMid} />
+                  <Bar dataKey="clicked" fill={chartColors.orange} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
