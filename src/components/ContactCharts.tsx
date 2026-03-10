@@ -46,10 +46,10 @@ const KPI = ({ label, value }: { label: string; value: string }) => (
 );
 
 const chartColors = {
-  orange: "hsl(36, 90%, 55%)",
-  midOrange: "hsl(22, 78%, 50%)",
-  deepOrange: "hsl(12, 78%, 46%)",
-  red: "hsl(2, 78%, 42%)",
+  navy: "hsl(213, 100%, 22%)",
+  navyMid: "hsl(213, 80%, 35%)",
+  orange: "hsl(22, 100%, 50%)",
+  orangeDark: "hsl(22, 80%, 40%)",
 };
 
 const ContactCharts = () => {
