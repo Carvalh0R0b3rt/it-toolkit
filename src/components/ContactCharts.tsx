@@ -41,7 +41,7 @@ const smsData = [
 const KPI = ({ label, value }: { label: string; value: string }) => (
   <div className="border border-border bg-background p-4">
     <p className="font-mono-ui text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
-    <p className="font-mono-ui text-2xl font-bold text-primary mt-1">{value}</p>
+    <p className="font-mono-ui text-2xl font-bold text-secondary mt-1">{value}</p>
   </div>
 );
 
