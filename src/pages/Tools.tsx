@@ -47,16 +47,38 @@ const Tools = () => {
   const [runningId, setRunningId] = useState<string | null>(null);
 
   /**
-   * Simulates triggering an n8n workflow.
-   * TODO: Replace setTimeout with a real fetch to the n8n webhook URL.
+   * Sends a POST request to the tool's n8n webhook URL.
+   * The webhook triggers the workflow; the JSON response is shown via toast.
+   * Falls back to a simulated delay when webhookUrl is empty (dev mode).
    */
-  const handleRun = (tool: Tool) => {
+  const handleRun = async (tool: Tool) => {
     setRunningId(tool.id);
     toast.info(`Gerando relatório: ${tool.name}...`);
-    setTimeout(() => {
+
+    try {
+      if (!tool.webhookUrl) {
+        // Dev fallback — remove once real URLs are set
+        await new Promise((r) => setTimeout(r, 2000));
+        toast.success(`Relatório "${tool.name}" gerado com sucesso!`);
+        return;
+      }
+
+      const res = await fetch(tool.webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ toolId: tool.id }),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const data = await res.json();
+      toast.success(data.message ?? `Relatório "${tool.name}" gerado com sucesso!`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Erro desconhecido";
+      toast.error(`Falha ao gerar relatório: ${msg}`);
+    } finally {
       setRunningId(null);
-      toast.success(`Relatório "${tool.name}" gerado com sucesso!`);
-    }, tool.duration);
+    }
   };
 
   return (
