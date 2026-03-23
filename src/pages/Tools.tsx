@@ -38,7 +38,7 @@ const TOOLS: Tool[] = [
     description:
       "Gera um relatório personalizado dos clientes com contratos vencidos há mais de 15 dias, incluindo detalhes de contato e histórico de interações.",
     buttonLabel: "Gerar Relatório",
-    duration: 3000,
+    webhookUrl: "", // TODO: set your n8n webhook URL here
   },
 ];
 
