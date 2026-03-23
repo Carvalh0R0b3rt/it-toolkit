@@ -84,7 +84,13 @@ const Index = () => {
         </div>
 
         {/* Theme toggle at the bottom of the side menu */}
-        <div className="p-4 border-t border-border">
+        <div className="p-4 border-t border-border space-y-2">
+          <Link
+            to="/tools"
+            className="block w-full text-center font-mono-ui text-xs uppercase tracking-wider px-4 py-2 border border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors"
+          >
+            Ferramentas
+          </Link>
           <ThemeToggle />
         </div>
       </div>
