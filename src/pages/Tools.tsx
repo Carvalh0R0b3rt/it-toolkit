@@ -26,8 +26,8 @@ interface Tool {
   description: string;
   /** Label for the action button */
   buttonLabel: string;
-  /** Simulated async duration in ms (will be replaced by real n8n calls) */
-  duration: number;
+  /** n8n webhook URL — POST request triggers the workflow, response is the result */
+  webhookUrl: string;
 }
 
 /** Registry of available tools. Each entry renders as a card in the grid. */
