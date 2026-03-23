@@ -14,9 +14,8 @@
  */
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "sonner";
-import { ArrowLeft, FileText } from "lucide-react";
+import { FileText } from "lucide-react";
 
 /** Tool definition — add new entries here to extend the grid. */
 interface Tool {
@@ -27,8 +26,8 @@ interface Tool {
   description: string;
   /** Label for the action button */
   buttonLabel: string;
-  /** Simulated async duration in ms (will be replaced by real n8n calls) */
-  duration: number;
+  /** n8n webhook URL — POST request triggers the workflow, response is the result */
+  webhookUrl: string;
 }
 
 /** Registry of available tools. Each entry renders as a card in the grid. */
@@ -39,7 +38,7 @@ const TOOLS: Tool[] = [
     description:
       "Gera um relatório personalizado dos clientes com contratos vencidos há mais de 15 dias, incluindo detalhes de contato e histórico de interações.",
     buttonLabel: "Gerar Relatório",
-    duration: 3000,
+    webhookUrl: "", // TODO: set your n8n webhook URL here
   },
 ];
 
@@ -48,29 +47,44 @@ const Tools = () => {
   const [runningId, setRunningId] = useState<string | null>(null);
 
   /**
-   * Simulates triggering an n8n workflow.
-   * TODO: Replace setTimeout with a real fetch to the n8n webhook URL.
+   * Sends a POST request to the tool's n8n webhook URL.
+   * The webhook triggers the workflow; the JSON response is shown via toast.
+   * Falls back to a simulated delay when webhookUrl is empty (dev mode).
    */
-  const handleRun = (tool: Tool) => {
+  const handleRun = async (tool: Tool) => {
     setRunningId(tool.id);
     toast.info(`Gerando relatório: ${tool.name}...`);
-    setTimeout(() => {
+
+    try {
+      if (!tool.webhookUrl) {
+        // Dev fallback — remove once real URLs are set
+        await new Promise((r) => setTimeout(r, 2000));
+        toast.success(`Relatório "${tool.name}" gerado com sucesso!`);
+        return;
+      }
+
+      const res = await fetch(tool.webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ toolId: tool.id }),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const data = await res.json();
+      toast.success(data.message ?? `Relatório "${tool.name}" gerado com sucesso!`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Erro desconhecido";
+      toast.error(`Falha ao gerar relatório: ${msg}`);
+    } finally {
       setRunningId(null);
-      toast.success(`Relatório "${tool.name}" gerado com sucesso!`);
-    }, tool.duration);
+    }
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <header className="border-b border-border px-6 py-4 flex items-center gap-4">
-        <Link
-          to="/"
-          className="text-muted-foreground hover:text-foreground transition-colors"
-          aria-label="Voltar"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </Link>
+      {/* Header — standalone, no navigation back */}
+      <header className="border-b border-border px-6 py-4">
         <h1 className="font-mono-ui text-sm font-bold uppercase tracking-widest text-secondary">
           Ferramentas
         </h1>
