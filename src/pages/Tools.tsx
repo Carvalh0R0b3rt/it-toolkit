@@ -83,15 +83,8 @@ const Tools = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <header className="border-b border-border px-6 py-4 flex items-center gap-4">
-        <Link
-          to="/"
-          className="text-muted-foreground hover:text-foreground transition-colors"
-          aria-label="Voltar"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </Link>
+      {/* Header — standalone, no navigation back */}
+      <header className="border-b border-border px-6 py-4">
         <h1 className="font-mono-ui text-sm font-bold uppercase tracking-widest text-secondary">
           Ferramentas
         </h1>
