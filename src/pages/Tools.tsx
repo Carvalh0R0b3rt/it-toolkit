@@ -14,9 +14,8 @@
  */
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "sonner";
-import { ArrowLeft, FileText } from "lucide-react";
+import { FileText } from "lucide-react";
 
 /** Tool definition — add new entries here to extend the grid. */
 interface Tool {
